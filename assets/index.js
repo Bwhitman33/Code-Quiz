@@ -66,3 +66,31 @@ const questions = [
     },
 ]
 
+// define time related variables for use in countdown function
+let timeLimit = questions.length * 15;
+let timeCountDescend = true;
+
+// create function for timer to set in a start game function
+function countdown() {
+    const countdown = setInterval(() => {
+        if (timeCountDescend) {
+            timeLimit--;
+        }
+        countdown.innerHTML = timeLimit
+        if (timeLimit <= 0) {
+            clearInterval(countdown)
+        }
+    }, 1000)
+}
+
+let currentQuestionIndex = 0
+
+// create function to start the quiz
+function quizStart() {
+    countdown();
+    startQuizEl.style.display = 'none';
+    questionEl.classList.remove('hide')
+}
+
+startBtnEl.addEventListener('click', quizStart);
+
