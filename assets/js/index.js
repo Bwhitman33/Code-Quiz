@@ -150,7 +150,7 @@ function testState(element, correct) {
     else{
         endgameEl.classList.remove('hide')
         endgameEl.innerHTML = 'Incorrect!!!'
-        timeLimit = timeLimit - 5
+        timeLimit = timeLimit - 15
     }
 }
 
@@ -160,3 +160,14 @@ function clearState(element) {
     element.classList.remove('Correct!!!')
     element.classList.remove('Incorrect!!!')
 }
+
+// create a function to end the quiz if each question is answered or if timeLimit expires
+
+function quizEnd()  {
+    questionEl.classList.add('hide')
+    endgameEl.classList.add('hide')
+    leaderboardEl.classList.remove('hide')
+    timeCountDescend = false
+}
+
+// add function to save highscore and display post quiz
