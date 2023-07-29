@@ -1,4 +1,5 @@
 // define variables for html elements
+
 const countdownEl = document.getElementById("countdown");
 const leaderboardEl = document.getElementById("leaderboard");
 const startBtnEl = document.getElementById("start-btn");
@@ -9,6 +10,7 @@ const chooseAnswerEl = document.getElementById("possible-answers");
 const endgameEl = document.getElementById("endgame");
 
 // assemble test questions
+
 const questions = [
   {
     question: "What does HTML stand for?",
@@ -70,10 +72,12 @@ const questions = [
 ];
 
 // define time related variables for use in countdown function
+
 let timeLimit = 90;
 let timeCountDescend = true;
 
 // create function for timer to set in a start game function
+
 function countdownStart() {
   const countdownStart = setInterval(() => {
     if (timeCountDescend) {
@@ -89,6 +93,7 @@ function countdownStart() {
 let currentQuestionIndex = 0;
 
 // create function to start the quiz
+
 function quizStart() {
   countdownStart();
   startQuizEl.style.display = "none";
@@ -114,7 +119,44 @@ function questionArray(questionSelection) {
     button.classList.add("btn-primary");
     button.classList.add("btn-lg");
     button.dataset.correct = answer.correct;
-    // button.addEventListener('click', )
+    button.addEventListener('click', chooseAnswer)
     listEl.appendChild(button);
   });
+}
+
+// create a function to choose an answer from given options and move to next question/ else end quiz 
+
+function chooseAnswer(e) {
+    const chosenAnswer = e.target
+    const correctAnswer = JSON.parse(chosenAnswer.dataset.correct)
+    testState(chosenAnswer, correctAnswer)
+    currentQuestionIndex++
+    if (currentQuestionIndex === questions.length || timeLimit === 0) {
+        quizEnd()
+    }
+    else {
+        questionArray(currentQuestionIndex)
+    }
+}
+
+// create a function to change class if answer is correct or incorrect
+
+function testState(element, correct) {
+    clearState(element)
+    if (correct){
+        endgameEl.classList.remove('hide')
+        endgameEl.innerHTML = 'Correct!!!'
+    }
+    else{
+        endgameEl.classList.remove('hide')
+        endgameEl.innerHTML = 'Incorrect!!!'
+        timeLimit = timeLimit - 5
+    }
+}
+
+// create a function to clear the define clearState to wipe correct/incorrect elements between answers
+
+function clearState(element) {
+    element.classList.remove('Correct!!!')
+    element.classList.remove('Incorrect!!!')
 }
