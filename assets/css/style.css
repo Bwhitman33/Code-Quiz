@@ -60,3 +60,14 @@ footer {
     align-items: center;
 }
 
+#finishedQuiz {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: aqua;
+    border: 10px;
+    border-style: dotted;
+}
+
