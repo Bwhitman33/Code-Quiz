@@ -8,6 +8,9 @@ const questionEl = document.getElementById("question-section");
 const listEl = document.getElementById("question-list");
 const chooseAnswerEl = document.getElementById("possible-answers");
 const endgameEl = document.getElementById("endgame");
+const submitToLeaderboard = document.getElementById("submit");
+const initialsEl = document.getElementById("initials");
+const gameOverEl = document.getElementById("finishedQuiz");
 
 // assemble test questions
 
@@ -163,11 +166,28 @@ function clearState(element) {
 
 // create a function to end the quiz if each question is answered or if timeLimit expires
 
-function quizEnd()  {
+function quizEnd() {
     questionEl.classList.add('hide')
     endgameEl.classList.add('hide')
-    leaderboardEl.classList.remove('hide')
+    gameOverEl.classList.remove('hide')
     timeCountDescend = false
+    var finalScore = document.getElementById('timeAtFinish');
+    finalScore.textContent = timeLimit;
 }
 
 // add function to save highscore and display post quiz
+
+function saveToLeaderboard() {
+    const initials = initialsEl.value.trim();
+    if (initials !== '') {
+        let leaderboard = JSON.parse(window.localStorage.getItem('leaderboard')) || [];
+        let newScore = {
+            score: timeLimit,
+            initials: initials,
+        };
+        leaderboard.push(newScore)
+        window.localStorage.setItem('leaderboard', JSON.stringify(leaderboard))
+    }
+}
+
+submitToLeaderboard.onclick = saveToLeaderboard;
