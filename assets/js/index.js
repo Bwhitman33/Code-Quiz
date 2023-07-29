@@ -1,7 +1,6 @@
 // define variables for html elements
 
 const countdownEl = document.getElementById("countdown");
-const leaderboardEl = document.getElementById("leaderboard");
 const startBtnEl = document.getElementById("start-btn");
 const startQuizEl = document.getElementById("start-quiz");
 const questionEl = document.getElementById("question-section");
