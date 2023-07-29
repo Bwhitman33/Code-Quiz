@@ -188,12 +188,6 @@ function saveToLeaderboard() {
         leaderboard.push(newScore)
         window.localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
     }
-    let postScores = document.getElementById('leaderboard');
-    for (let i = 0; i < postScores.length; i += 1) {
-    let genScoreList = document.createElement('li');
-    genScoreList.textContent = postScores[i].initials + '-' + postScores[i].score;
-    postScores.appendChild(genScoreList);
-    }
 }
 
 submitToLeaderboard.onclick = saveToLeaderboard;
