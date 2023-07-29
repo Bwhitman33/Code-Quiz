@@ -1,0 +1,62 @@
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: aqua;
+}
+
+body {
+    background-color: rgb(31, 29, 29);
+}
+
+.countdown {
+    padding-top: 5rem;
+    color: aqua;
+}
+
+.hide {
+    display: none !important;
+}
+
+h2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.start {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    min-height: 80vh;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: aqua;
+}
+
+#endgame {
+    text-align: center;
+    color: aqua;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
