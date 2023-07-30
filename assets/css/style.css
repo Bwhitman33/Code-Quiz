@@ -4,11 +4,12 @@ header {
     text-align: center;
     justify-content: center;
     align-items: center;
+    background-color:rgb(32, 32, 32) ;
     color: aqua;
 }
 
-body {
-    background-color: rgb(31, 29, 29);
+.app-body {
+    background-color: rgb(32, 32, 32);
 }
 
 .countdown {
